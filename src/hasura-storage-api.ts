@@ -140,11 +140,15 @@ export class HasuraStorageApi {
   }
 
   async getMetadata(path: string): Promise<StorageMetadataResponse> {
-    const res = await this.httpClient.get(`/m${path}`, {
-      headers: {
-        ...this.generateAuthHeaders(),
-      },
-    });
-    return res.data;
+    try {
+      const res = await this.httpClient.get(`/m${path}`, {
+        headers: {
+          ...this.generateAuthHeaders(),
+        },
+      });
+      return { metadata: res.data, error: null };
+    } catch (error) {
+      return { metadata: null, error: error as Error }; 
+    }
   }
 }
