@@ -1,6 +1,6 @@
 {
   "name": "@suplere/hbp-storage-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Implement for hasura backend plus - storage part. With multi app support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
