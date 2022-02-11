@@ -148,7 +148,7 @@ export class HasuraStorageApi {
       });
       return { metadata: res.data, error: null };
     } catch (error) {
-      return { metadata: null, error: error as Error }; 
+      return { metadata: null, error: error as Error };
     }
   }
 }
