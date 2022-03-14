@@ -10,7 +10,7 @@ export type StorageUploadParams = {
 };
 
 export type StorageUploadResponse =
-  | { fileMetadata: HeadObjectOutput; error: null }
+  | { fileMetadata: FileResponse; error: null }
   | { fileMetadata: null; error: Error };
 
 export type StorageGetUrlParams = {
@@ -44,6 +44,10 @@ export type StorageDeleteResponse = { error: Error | null };
 //   createdAt: string;
 //   bucketId: string;
 // };
+interface FileResponse extends HeadObjectOutput {
+  key: string;
+};
+
 
 export type MetadataValue = string;
 export type Metadata = { [key: string]: MetadataValue };
@@ -168,7 +172,7 @@ export type ApiUploadParams = {
 };
 
 export type ApiUploadResponse =
-  | { fileMetadata: HeadObjectOutput; error: null }
+  | { fileMetadata: FileResponse; error: null }
   | { fileMetadata: null; error: Error };
 
 export type ApiGetPresignedUrlParams = {
